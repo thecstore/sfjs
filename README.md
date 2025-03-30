@@ -1,2 +1,2 @@
 # sfjs
-A general javascript library.
+A general javascript library for web development.
