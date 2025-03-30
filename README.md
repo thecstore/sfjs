@@ -1,2 +1,2 @@
-# csjs
+# sfjs
 A general javascript library.
