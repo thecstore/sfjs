@@ -21,52 +21,52 @@ sf.paytrace.forms = {
 			'id': ''
 		}
 	},
-   'protect': {
-    'id': 'ProtectForm',
-   },
-	'ui': {
-		'id': '',
-		'elements': {
-			'outerContainer' : {
-				'id': ''
-			},
-			'hpfForm' : {
-				'id': 'pt_hpf_form'
-			},
-			'titleContainer' : {
-				'id': ''
-			},
-			'title' : {
-				'id': ''
-			},
-			'messageContainer' : {
-				'id': ''
-			},
-			'message' : {
-				'id': ''
-			},
-			'amountContainer' : {
-				'id': ''
-			},
-			'amount' : {
-				'id': ''
-			},
-			 'buttons': {
-			      'submit': {
-			        'id': '',
-			        'onclick': {}
-			      },
-			      'cancel': {
-			        'id': '',
-			        'onclick': {}
-			      },
-			      'finish': {
-			        'id': '',
-			        'onclick': {}
-			      }
-			 }
-		}
-	}
+  'protect': {
+    id: 'ProtectForm',
+    ui: {
+      'id': '',
+      'elements': {
+        'outerContainer' : {
+          'id': ''
+        },
+        'hpfForm' : {
+          'id': 'pt_hpf_form'
+        },
+        'titleContainer' : {
+          'id': ''
+        },
+        'title' : {
+          'id': ''
+        },
+        'messageContainer' : {
+          'id': ''
+        },
+        'message' : {
+          'id': ''
+        },
+        'amountContainer' : {
+          'id': ''
+        },
+        'amount' : {
+          'id': ''
+        },
+        buttons: {
+            'submit': {
+              'id': '',
+              'onclick': {}
+            },
+            'cancel': {
+              'id': '',
+              'onclick': {}
+            },
+            'finish': {
+              'id': '',
+              'onclick': {}
+            }
+        }
+      }
+    }
+  }
 };
 
 sf.paytrace.request = {
