@@ -155,12 +155,14 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
     billingEmail = $('#' + sf.paytrace.request.payment_fields.billing.email_address.id).val(),
     billingPhone = $('#' + sf.paytrace.request.payment_fields.billing.phone.id).val(),
     billingAddressStreet = $('#' + sf.paytrace.request.payment_fields.billing_address.street.id).val(),
+    billingAddressStreet2 = $('#' + sf.paytrace.request.payment_fields.billing_address.street2.id).val(),
     billingAddressCityStateZipcode = $('#' + sf.paytrace.request.payment_fields.billing_address.city_state_postal_code.id).val(),
     billingAddressCity = $('#' + sf.paytrace.request.payment_fields.billing_address.city.id).val(),
     billingAddressState = $('#' + sf.paytrace.request.payment_fields.billing_address.state.id).val(),
     billingAddressPostalCode = $('#' + sf.paytrace.request.payment_fields.billing_address.postal_code.id).val(),
     billingAddressCountry = $('#' + sf.paytrace.request.payment_fields.billing_address.country.id).val(),
     shippingAddressStreet = $('#' + sf.paytrace.request.payment_fields.shipping_address.street.id).val(),
+    shippingAddressStreet2 = $('#' + sf.paytrace.request.payment_fields.shipping_address.street2.id).val(),
     shippingAddressCityStateZipcode = $('#' + sf.paytrace.request.payment_fields.shipping_address.city_state_postal_code.id).val(),
     shippingAddressCity = $('#' + sf.paytrace.request.payment_fields.shipping_address.city.id).val(),
     shippingAddressState = $('#' + sf.paytrace.request.payment_fields.shipping_address.state.id).val(),
@@ -204,7 +206,7 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
       "amount": amount,
       "billing_address": {
           "street": billingAddressStreet.trim(),
-          "street2": "",
+          "street2": billingAddressStreet2.trim(),
           "city": billingAddressCity,
           "state": billingAddressState,
           "country": billingAddressCountry,
@@ -221,7 +223,7 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
   if(shippingAddressStreet != '') {
     data['shipping_address'] = {
       "street": shippingAddressStreet.trim(),
-      "street2": "",
+      "street2": shippingAddressStreet2.trim(),
       "city": shippingAddressCity,
       "state": shippingAddressState,
       "country": shippingAddressCountry,
@@ -387,7 +389,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
     	documentBody.css('height', ($(window).height() + 2000) + 'px');
       overlay.css('height', ($(window).height() + 2000) + 'px');
     
-    	$('#' + sf.paytrace.request.payment_fields.amount.id).text(amount);
+    	$('#' + sf.paytrace.forms.protect.ui.amount.id).text(amount);
         
     	$(window).trigger('scroll');
     }, 1000);
