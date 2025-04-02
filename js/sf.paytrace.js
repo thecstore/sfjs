@@ -572,6 +572,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
                 }
           }); // end of PTPayment.validate
         }); // end of add event listener submit                
+        }); // end of PTPayment.setup.then()
       }).fail(function(data) {
         // DEBUG
         console.debug('fail (pay):' + JSON.stringify(data));
@@ -581,5 +582,4 @@ sf.paytrace.initPtProtect = function(callbacks) {
       });
     
     PTPayment.theme('horizontal');
-  });
 };
