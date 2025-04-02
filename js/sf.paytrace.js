@@ -25,7 +25,7 @@ sf.paytrace.forms = {
     id: 'ProtectForm',
     ui: {
       'id': '',
-      'elements': {
+      elements: {
         'outerContainer' : {
           'id': ''
         },
@@ -510,9 +510,9 @@ sf.paytrace.initPtProtect = function(callbacks) {
         // any default event handling and prevent event handling bubbling.
 
         var ptForm = document.getElementById(sf.paytrace.forms.protect.id),
-          ptFormSubmitButton = document.getElementById(sf.paytrace.forms.protect.buttons.submit),
-          ptFormCancelButton = document.getElementById(sf.paytrace.forms.protect.buttons.cancel),
-          ptFormFinishButton = document.getElementById(sf.paytrace.forms.protect.buttons.finish);
+          ptFormSubmitButton = document.getElementById(sf.paytrace.forms.protect.ui.elements.buttons.submit.id),
+          ptFormCancelButton = document.getElementById(sf.paytrace.forms.protect.ui.elements.buttons.cancel.id),
+          ptFormFinishButton = document.getElementById(sf.paytrace.forms.protect.ui.elements.buttons.finish.id);
 
 
         var submitPayment = function(response, token) {
