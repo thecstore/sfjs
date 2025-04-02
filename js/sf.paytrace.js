@@ -389,7 +389,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
     	documentBody.css('height', ($(window).height() + 2000) + 'px');
       overlay.css('height', ($(window).height() + 2000) + 'px');
     
-    	$('#' + sf.paytrace.forms.protect.ui.amount.id).text(amount);
+    	$('#' + sf.paytrace.forms.protect.ui.elements.amount.id).text(amount);
         
     	$(window).trigger('scroll');
     }, 1000);
