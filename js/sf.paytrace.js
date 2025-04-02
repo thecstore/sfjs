@@ -581,5 +581,5 @@ sf.paytrace.initPtProtect = function(callbacks) {
         }
       });
     
-    PTPayment.theme('horizontal');
+    // PTPayment.theme('horizontal');
 };
