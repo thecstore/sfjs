@@ -188,11 +188,13 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
 
   billingAddressCountry = billingAddressCountry != '' ? billingAddressCountry : 'US';
 
-  if(shippingAddressCityStateZipcode != '') {
-    shippingAddressParts = shippingAddressCityStateZipcode.split(sf.paytrace.request.payment_fields.city_state_postal_code.delimiter);
-    shippingAddressCity = shippingAddressParts[0].trim();
-    shippingAddressState = (shippingAddressParts.length > 1 ? shippingAddressParts[1] : '').trim();
-    shippingAddressPostalCode = (shippingAddressParts.length > 2 ? shippingAddressParts[2] : '').trim();
+  if(shippingAddressCityStateZipcode) {
+    if(shippingAddressCityStateZipcode != '') {
+      shippingAddressParts = shippingAddressCityStateZipcode.split(sf.paytrace.request.payment_fields.city_state_postal_code.delimiter);
+      shippingAddressCity = shippingAddressParts[0].trim();
+      shippingAddressState = (shippingAddressParts.length > 1 ? shippingAddressParts[1] : '').trim();
+      shippingAddressPostalCode = (shippingAddressParts.length > 2 ? shippingAddressParts[2] : '').trim();
+    }
   }
   
   shippingAddressCountry = shippingAddressCountry != '' ? shippingAddressCountry : 'US';
