@@ -176,12 +176,14 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
     ptFormFinishButton = $('#' + sf.paytrace.forms.protect.ui.elements.buttons.finish.id).val(),
     detail = '',
     description = '';
-    
-  if(billingAddressCityStateZipcode != '') {
-    billingAddressParts = billingAddressCityStateZipcode.split(sf.paytrace.request.payment_fields.city_state_postal_code.delimiter);
-    billingAddressCity = billingAddressParts[0].trim();
-    billingAddressState = (billingAddressParts.length > 1 ? billingAddressParts[1] : '').trim();
-    billingAddressPostalCode = (billingAddressParts.length > 2 ? billingAddressParts[2] : '').trim();
+  
+  if(billingAddressCityStateZipcode) {
+    if(billingAddressCityStateZipcode != '') {
+      billingAddressParts = billingAddressCityStateZipcode.split(sf.paytrace.request.payment_fields.city_state_postal_code.delimiter);
+      billingAddressCity = billingAddressParts[0].trim();
+      billingAddressState = (billingAddressParts.length > 1 ? billingAddressParts[1] : '').trim();
+      billingAddressPostalCode = (billingAddressParts.length > 2 ? billingAddressParts[2] : '').trim();
+    }
   }
 
   billingAddressCountry = billingAddressCountry != '' ? billingAddressCountry : 'US';
