@@ -8,7 +8,8 @@ sf.paytrace.config = {
   endpoints: {
     postPtProtectAuth: 'postPtProtectAuth.php',
     getPtProtectToken: 'getPtProtectToken.php'
-  }
+  },
+  debug: false
 };
 
 sf.paytrace.state = {
@@ -235,8 +236,10 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
     // data['marchant_id'] = '';
     
     // DEBUG
-    // console.debug(JSON.stringify(data));
-    // console.debug(data);
+    if(sf.paytrace.config.debug) {
+      console.debug(JSON.stringify(data));
+      console.debug(data);
+    }
     // return;
     
     // DEBUG
@@ -539,7 +542,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
         var handleError = function(error) {
           var formMessage = $('#' + sf.paytrace.forms.protect.ui.elements.message.id),
               message = 'Error: Please fill in all of the fields in the main form, and be sure formatting is correct. ' +
-                        'You will have to click CANCEL on this payment form to do so. ' + error;
+                        'You will have to click CANCEL on this payment form to do so. Error:' + error;
           
           formMessage.addClass('red');
           formMessage.text(message);
