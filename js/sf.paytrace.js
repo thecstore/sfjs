@@ -538,7 +538,8 @@ sf.paytrace.initPtProtect = function(callbacks) {
 
         var handleError = function(error) {
           var formMessage = $('#' + sf.paytrace.forms.protect.ui.elements.message.id),
-              message = 'Error: Please fill in all of the fields in the main form, and be sure formatting is correct. You will have to click CANCEL on this payment form to do so. ';
+              message = 'Error: Please fill in all of the fields in the main form, and be sure formatting is correct. ' +
+                        'You will have to click CANCEL on this payment form to do so. ' + error;
           
           formMessage.addClass('red');
           formMessage.text(message);
