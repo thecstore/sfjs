@@ -111,30 +111,30 @@ sf.paytrace.request = {
         }
     },
     shipping_address : {
-        'useBillingAddress': false,
-        'street': {
-          'id': ''
-        },
-        'street2': {
-          'id': ''
-        },
-        'city': {
-          'id': ''
-        },
-        'state': {
-          'id': ''
-        },
-        'country': {
-          'id': ''
-        },
-        'postal_code': {
-          'id': ''
-        },
-        'city_state_postal_code': {  // this will be split
-          'id': '',
-          'delimiter': ','
-        }
+      'useBillingAddress': false,
+      'street': {
+        'id': ''
+      },
+      'street2': {
+        'id': ''
+      },
+      'city': {
+        'id': ''
+      },
+      'state': {
+        'id': ''
+      },
+      'country': {
+        'id': ''
+      },
+      'postal_code': {
+        'id': ''
+      },
+      'city_state_postal_code': {  // this will be split
+        'id': '',
+        'delimiter': ','
       }
+    }
   }
 };
 
@@ -243,8 +243,6 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
       "postal_code": billingAddressPostalCode
     };
   }
-
-  sf.paytrace.config.useBillingForShipping
 
     // data['customer_reference_id'] = '';
     // data['marchant_id'] = '';
