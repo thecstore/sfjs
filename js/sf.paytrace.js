@@ -171,9 +171,9 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
     shippingAddressPostalCode = $('#' + sf.paytrace.request.payment_fields.shipping_address.postal_code.id).val(),
     shippingAddressCountry = $('#' + sf.paytrace.request.payment_fields.shipping_address.country.id).val(),
     ptForm = document.getElementById(sf.paytrace.forms.protect.id),
-    ptFormSubmitButton = $('#' + sf.paytrace.buttons.submit.id).val(),
-    ptFormCancelButton = $('#' + sf.paytrace.buttons.cancel.id).val(),
-    ptFormFinishButton = $('#' + sf.paytrace.buttons.finish.id).val(),
+    ptFormSubmitButton = $('#' + sf.paytrace.forms.protect.ui.elements.buttons.submit.id).val(),
+    ptFormCancelButton = $('#' + sf.paytrace.forms.protect.ui.elements.buttons.cancel.id).val(),
+    ptFormFinishButton = $('#' + sf.paytrace.forms.protect.ui.elements.buttons.finish.id).val(),
     detail = '',
     description = '';
     
