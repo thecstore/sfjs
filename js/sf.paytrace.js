@@ -349,6 +349,8 @@ sf.paytrace.initPtProtect = function(callbacks) {
     sf.paytrace.init();
   }
   
+  callbacks = callbacks || {};
+
 	var request = '',
     overlay = document.getElementById(sf.paytrace.forms.ui.overlay.id),
 		documentBody = $(document.body),
