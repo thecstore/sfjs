@@ -111,6 +111,7 @@ sf.paytrace.request = {
         }
     },
     shipping_address : {
+        'useBillingAddress': false,
         'street': {
           'id': ''
         },
@@ -231,6 +232,19 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
       "postal_code": shippingAddressPostalCode
     };
   }
+
+  if(sf.paytrace.request.payment_fields.shipping_address.useBillingAddress) {
+    data['shipping_address'] = {
+      "street": billingAddressStreet.trim(),
+      "street2": billingAddressStreet2.trim(),
+      "city": billingAddressCity,
+      "state": billingAddressState,
+      "country": billingAddressCountry,
+      "postal_code": billingAddressPostalCode
+    };
+  }
+
+  sf.paytrace.config.useBillingForShipping
 
     // data['customer_reference_id'] = '';
     // data['marchant_id'] = '';
