@@ -225,16 +225,18 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
       "merchant_id": 0,
       "return_clr": false
   };
-  
-  if(shippingAddressStreet != '') {
-    data['shipping_address'] = {
-      "street": shippingAddressStreet.trim(),
-      "street2": shippingAddressStreet2.trim(),
-      "city": shippingAddressCity,
-      "state": shippingAddressState,
-      "country": shippingAddressCountry,
-      "postal_code": shippingAddressPostalCode
-    };
+
+  if(shippingAddressStreet) {
+    if(shippingAddressStreet != '') {
+      data['shipping_address'] = {
+        "street": shippingAddressStreet.trim(),
+        "street2": shippingAddressStreet2.trim(),
+        "city": shippingAddressCity,
+        "state": shippingAddressState,
+        "country": shippingAddressCountry,
+        "postal_code": shippingAddressPostalCode
+      };
+    }
   }
 
   if(sf.paytrace.request.payment_fields.shipping_address.useBillingAddress) {
