@@ -71,22 +71,22 @@ sf.paytrace.forms = {
 };
 
 sf.paytrace.request = {
-  payment_fields: {
-    amount: {
+ 'payment_fields': {
+    'amount': {
       'id': ''
     },
-    billing: {
-      name: {
+    'billing': {
+      'name': {
         'id': ''
       },
-      email_address: {
+      'email_address': {
         'id': ''
       },
-      phone: {
+      'phone': {
         'id': ''
       }
     },
-    billing_address : {
+    'billing_address' : {
         'street': {
           'id': ''
         },
@@ -105,12 +105,12 @@ sf.paytrace.request = {
         'postal_code': {
           'id': ''
         },
-        'city_state_postal_code': {  // this will be split
+        'city_state_postal_code': {
           'id': '',
           'delimiter': ','
         }
     },
-    shipping_address : {
+    'shipping_address' : {
       'useBillingAddress': false,
       'street': {
         'id': ''
@@ -130,7 +130,7 @@ sf.paytrace.request = {
       'postal_code': {
         'id': ''
       },
-      'city_state_postal_code': {  // this will be split
+      'city_state_postal_code': {
         'id': '',
         'delimiter': ','
       }
