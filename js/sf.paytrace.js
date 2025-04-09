@@ -538,10 +538,39 @@ sf.paytrace.initPtProtect = function(callbacks) {
           ptFormFinishButton = document.getElementById(sf.paytrace.forms.protect.ui.elements.buttons.finish.id);
 
 
+        if(ptFormSubmitButton) {
+          $(ptFormSubmitButton).on('click', function() {
+            $(document).trigger('sf.paytrace.submitPaymentClick');
+            if(typeof(sf.paytrace.forms.protect.ui.elements.buttons.submit.onclick) == 'function') {
+              sf.paytrace.forms.protect.ui.elements.buttons.submit.onclick();
+            }
+          });
+        }
+
+        if(ptFormCancelButton) {
+          $(ptFormCancelButton).on('click', function() {
+            $(document).trigger('sf.paytrace.cancelPaymentClick');
+            if(typeof(sf.paytrace.forms.protect.ui.elements.buttons.cancel.onclick) == 'function') {
+              sf.paytrace.forms.protect.ui.elements.buttons.cancel.onclick();
+            }
+          });
+        }
+
+        if(ptFormFinishButton) {
+          $(ptFormFinishButton).on('click', function() {
+            $(document).trigger('sf.paytrace.finishPaymentClick');
+            if(typeof(sf.paytrace.forms.protect.ui.elements.buttons.finish.onclick) == 'function') {
+              sf.paytrace.forms.protect.ui.elements.buttons.finish.onclick();
+            }
+          });
+        }
+
         var submitPayment = function(response, token) {
             // DEBUG
             // console.debug('submit payment: ' + JSON.stringify(response) + ';' + token);
             
+            $(document).trigger('sf.paytrace.submitPayment');
+
             var success = response.success,
               hpfToken = response.message['hpf_token'],
               encKey = response.message['enc_key'];
