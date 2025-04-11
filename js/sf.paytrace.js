@@ -382,7 +382,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
     	overlay = $(overlay);
     }
 
-	$(document).trigger('sf.paytrace.beforeOpenIFrame');
+	$(document).trigger('sf.paytrace.protect.beforeOpenIFrame');
 	
     formOuter.removeClass('hide');
     documentBody.append(formOuter);
@@ -423,7 +423,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
         
     	$(window).trigger('scroll');
 
-	    $(document).trigger('sf.paytrace.afterOpenIFrame');
+	    $(document).trigger('sf.paytrace.protect.afterOpenIFrame');
     }, 1000);
     
     // DEBUG
