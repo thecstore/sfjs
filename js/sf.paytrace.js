@@ -296,7 +296,7 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
           formMessage.addClass('red');
           formMessage.removeClass('green');
           formMessage.text('An error has occurred. Please try again. ' + ((!responseStatusCode)?'':' (' + responseStatusCode + ') ') + detail);
-          $(document).trigger('sf.paytrace.payment.error');
+          $(document).trigger('sf.paytrace.protect.payment.error');
           return;
         }
         
@@ -309,13 +309,13 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
           ptFormCancelButton.addClass('hide');
           ptFormFinishButton.removeClass('hide');
 
-          $(document).trigger('sf.paytrace.payment.success');
+          $(document).trigger('sf.paytrace.protect.payment.success');
         }
         else {
           approvalMessage = data['data'].approval_message;
           formMessage.addClass('red');
           formMessage.text('There was a problem processing your transaction: ' + approvalMessage);
-          $(document).trigger('sf.paytrace.payment.fail');
+          $(document).trigger('sf.paytrace.protect.payment.fail');
         }
 
         // DEBUG
@@ -332,7 +332,7 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
   })
   .fail(function( jqXHR, textStatus, errorThrown ) {
         alert('error(fail): ' + errorThrown + '; status:' + jqXHR.status + ', textStatus:' + textStatus);
-        $(document).trigger('sf.paytrace.payment.post.fail');
+        $(document).trigger('sf.paytrace.protect.payment.post.fail');
   });
     
     // DEBUG
@@ -549,7 +549,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
 
         if(ptFormSubmitButton) {
           $(ptFormSubmitButton).on('click', function() {
-            $(document).trigger('sf.paytrace.submitPaymentClick');
+            $(document).trigger('sf.paytrace.protect.submitPaymentClick');
             if(typeof(sf.paytrace.forms.protect.ui.elements.buttons.submit.onclick) == 'function') {
               sf.paytrace.forms.protect.ui.elements.buttons.submit.onclick();
             }
@@ -558,7 +558,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
 
         if(ptFormCancelButton) {
           $(ptFormCancelButton).on('click', function() {
-            $(document).trigger('sf.paytrace.cancelPaymentClick');
+            $(document).trigger('sf.paytrace.protect.cancelPaymentClick');
             if(typeof(sf.paytrace.forms.protect.ui.elements.buttons.cancel.onclick) == 'function') {
               sf.paytrace.forms.protect.ui.elements.buttons.cancel.onclick();
             }
@@ -567,7 +567,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
 
         if(ptFormFinishButton) {
           $(ptFormFinishButton).on('click', function() {
-            $(document).trigger('sf.paytrace.finishPaymentClick');
+            $(document).trigger('sf.paytrace.protect.finishPaymentClick');
             if(typeof(sf.paytrace.forms.protect.ui.elements.buttons.finish.onclick) == 'function') {
               sf.paytrace.forms.protect.ui.elements.buttons.finish.onclick();
             }
@@ -578,7 +578,7 @@ sf.paytrace.initPtProtect = function(callbacks) {
             // DEBUG
             // console.debug('submit payment: ' + JSON.stringify(response) + ';' + token);
             
-            $(document).trigger('sf.paytrace.submitPayment');
+            $(document).trigger('sf.paytrace.protect.submitPayment');
 
             var success = response.success,
               hpfToken = response.message['hpf_token'],
