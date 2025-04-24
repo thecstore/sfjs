@@ -296,7 +296,7 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
           formMessage.addClass('red');
           formMessage.removeClass('green');
           formMessage.text('An error has occurred. Please try again. ' + ((!responseStatusCode)?'':' (' + responseStatusCode + ') ') + detail);
-          $(document).trigger('sf.paytrace.protect.payment.error');
+          $(document).trigger('sf.paytrace.protect.payment.error', data['data']);
           return;
         }
         
@@ -309,13 +309,13 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
           ptFormCancelButton.addClass('hide');
           ptFormFinishButton.removeClass('hide');
 
-          $(document).trigger('sf.paytrace.protect.payment.success');
+          $(document).trigger('sf.paytrace.protect.payment.success', data['data']);
         }
         else {
           approvalMessage = data['data'].approval_message;
           formMessage.addClass('red');
           formMessage.text('There was a problem processing your transaction: ' + approvalMessage);
-          $(document).trigger('sf.paytrace.protect.payment.fail');
+          $(document).trigger('sf.paytrace.protect.payment.fail', data['data']);
         }
 
         // DEBUG
@@ -332,7 +332,7 @@ sf.paytrace.processProtectAuth = function(hpfToken, encKey, ptProtectToken) {
   })
   .fail(function( jqXHR, textStatus, errorThrown ) {
         alert('error(fail): ' + errorThrown + '; status:' + jqXHR.status + ', textStatus:' + textStatus);
-        $(document).trigger('sf.paytrace.protect.payment.post.fail');
+        $(document).trigger('sf.paytrace.protect.payment.post.fail', errorThrown);
   });
     
     // DEBUG
